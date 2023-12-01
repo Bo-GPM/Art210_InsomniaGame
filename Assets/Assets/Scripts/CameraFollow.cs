@@ -8,10 +8,10 @@ public class CameraFollow : MonoBehaviour
     public float distanceFromPlayer = 5f;
     public float heightOffset = 2f;
     private Vector3 offset;
-
+    
     void Start()
     {
-        // Calculate initial offset based on current position and the player's position
+        // Calculate init offset of camera
         offset = new Vector3(0, heightOffset, -distanceFromPlayer);
     }
 
@@ -25,8 +25,13 @@ public class CameraFollow : MonoBehaviour
         // Rotate the offset around the y-axis
         Vector3 rotatedOffset = Quaternion.Euler(0, angle, 0) * offset;
 
-        // Set the camera's position and look at the player
+        // Set the camera's position and rotation
         transform.position = player.position + rotatedOffset;
         transform.LookAt(player.position + Vector3.up * heightOffset);
+    }
+
+    void CameraBuffer()
+    {
+        // TODO: add camera buffer
     }
 }
