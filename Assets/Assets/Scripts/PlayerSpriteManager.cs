@@ -10,33 +10,47 @@ public class PlayerSpriteManager : MonoBehaviour
     [SerializeField] Sprite fullRenderSprite;
 
     [Header("Object References")]
-    [SerializeField] SpriteRenderer playerSpriteRender;
+    [SerializeField] SpriteRenderer baseSpriteLayer;
+    [SerializeField] SpriteRenderer topSpriteLayer;
 
     [Header("Settings")]
-    [SerializeField] float maxSketchyHeight = 10;
+    //[SerializeField] bool snapMode = true;
+    //[SerializeField] float snapHeightThreshold = 10;
+    [SerializeField] float maxHeight = 0;
+    [SerializeField] float minHeight = 0;
 
     private bool isSketchy = true;
+
+    private void Start()
+    {
+        topSpriteLayer.color = new Color(1, 1, 1, 0);
+    }
 
     // Update is called once per frame
     void Update()
     {
         float currHeight = transform.position.y;
 
+        float fadeAmount = Mathf.InverseLerp(minHeight, maxHeight, currHeight);
+        topSpriteLayer.color = new Color(1, 1, 1, fadeAmount);
+
+        /* SNAP VERSION
         if (isSketchy)
         {
-            if (currHeight >= maxSketchyHeight)
+            if (currHeight >= snapHeightThreshold)
             {
-                playerSpriteRender.sprite = fullRenderSprite;
+                baseSpriteLayer.sprite = fullRenderSprite;
                 isSketchy = false;
             }
-        } 
+        }
         else
         {
-            if (currHeight < maxSketchyHeight)
+            if (currHeight < snapHeightThreshold)
             {
-                playerSpriteRender.sprite = sketchySprite;
+                baseSpriteLayer.sprite = sketchySprite;
                 isSketchy = true;
             }
         }
+        */
     }
 }
