@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5581201309887746059}
   - component: {fileID: 2965582430182803351}
   - component: {fileID: 7637535656424055434}
+  - component: {fileID: -1792546770703296272}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -233,3 +234,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 10
   moveSpeed: 20
+--- !u!114 &-1792546770703296272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5876101104031991872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738beaeb8d8db3641bd20fdc23a6ddc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sketchySprite: {fileID: 21300000, guid: 4360d40764f182a4782632c27337a53d, type: 3}
+  fullRenderSprite: {fileID: 21300000, guid: 54ba78b51573342479eb2e7d9ddca55b, type: 3}
+  playerSpriteRender: {fileID: 2732099517230945953}
+  maxSketchyHeight: 10
